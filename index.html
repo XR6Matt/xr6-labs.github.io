@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XR6 Labs | Systems & Cryptographic Infrastructure</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --accent: #58a6ff;
+            --border-color: #30363d;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 650px;
+            width: 90%;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: #ffffff;
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+        }
+
+        .bio {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: var(--text-main);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+        }
+
+        .card h3 {
+            margin: 0 0 8px 0;
+            color: #ffffff;
+            font-size: 1.1rem;
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>XR6 Labs</h1>
+            <div class="subtitle">Core Architecture & Systems R&D</div>
+        </header>
+
+        <p class="bio">
+            Specializing in post-quantum local encryption frameworks, secure data integrity verification, 
+            and device performance loop optimizations. Engineering specialized SDK integration layers 
+            and decentralized infrastructure modules.
+        </p>
+
+        <h2 class="section-title">Active Repositories</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>js-sdk-XR6</h3>
+                <p>TypeScript development kit optimizing transaction mapping logic, encryption wrappers, and network system operations.</p>
+            </div>
+            <div class="card">
+                <h3>cryptography</h3>
+                <p>Python-based implementations focusing on secure local encryption modules and robust data-handling fail-safes.</p>
+            </div>
+            <div class="card">
+                <h3>merkleetree-verify</h3>
+                <p>High-precision data verification tooling structured to audit backend record logs and maintain system consensus integrity.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>Inquiries: <a href="mailto:xr6.corengineeringlab@gmail.com">xr6.corengineeringlab@gmail.com</a></p>
+            <p>Explore source code on <a href="https://github.com/XR6matt" target="_blank">GitHub</a></p>
+        </footer>
+    </div>
+
+</body>
+</html>
