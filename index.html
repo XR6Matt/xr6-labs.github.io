@@ -3,158 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XR6 Labs | Systems & Cryptographic Infrastructure</title>
+    <title>XR6 Labs | Core Architecture & Systems R&D</title>
     <style>
         :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
-            --text-main: #c9d1d9;
-            --text-muted: #8b949e;
-            --accent: #58a6ff;
-            --border-color: #30363d;
+            --bg-color: #0a0c10;
+            --panel-bg: #10141b;
+            --accent-blue: #007acc;
+            --accent-cyan: #00e5ff;
+            --text-main: #e2e8f0;
+            --text-muted: #64748b;
+            --border-color: #1e293b;
+            --glow-color: rgba(0, 229, 255, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
-            margin: 0;
-            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             min-height: 100vh;
         }
 
         .container {
-            max-width: 650px;
-            width: 90%;
-            padding: 40px 20px;
+            width: 100%;
+            max-width: 600px;
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 15px var(--glow-color);
         }
 
         header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 16px;
         }
 
-        h1 {
-            font-size: 2.2rem;
-            color: #ffffff;
-            margin-bottom: 5px;
-            letter-spacing: -0.5px;
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 0 0 10px var(--accent-cyan);
         }
 
         .subtitle {
-            color: var(--accent);
-            font-weight: 600;
+            font-size: 12px;
+            color: var(--accent-cyan);
             text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1.5px;
+            letter-spacing: 3px;
+            margin-top: 4px;
         }
 
-        .bio {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            color: var(--text-main);
-            text-align: center;
-            margin-bottom: 40px;
+        .section {
+            margin-bottom: 20px;
         }
 
         .section-title {
-            font-size: 1.2rem;
-            color: #ffffff;
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-            margin-bottom: 40px;
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border-color);
         }
 
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
+        .bio-box {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px dashed var(--border-color);
+            padding: 12px;
             border-radius: 6px;
-            padding: 20px;
-            transition: transform 0.2s, border-color 0.2s;
+            font-size: 13px;
+            color: #cbd5e1;
         }
 
-        .card:hover {
-            transform: translateY(-2px);
-            border-color: var(--accent);
+        .repo-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
-        .card h3 {
-            margin: 0 0 8px 0;
-            color: #ffffff;
-            font-size: 1.1rem;
+        .repo-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
         }
 
-        .card p {
-            margin: 0;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.5;
+        .repo-card:hover {
+            border-color: var(--accent-cyan);
+            background: rgba(0, 229, 255, 0.02);
         }
 
-        footer {
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-            padding-top: 20px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
+        .repo-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
         }
 
-        footer a {
-            color: var(--accent);
+        .repo-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent-blue);
             text-decoration: none;
         }
 
-        footer a:hover {
-            text-decoration: underline;
+        .repo-name:hover {
+            color: var(--accent-cyan);
+        }
+
+        .repo-tag {
+            font-size: 10px;
+            background: var(--border-color);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--text-main);
+        }
+
+        .repo-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        footer {
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .protocol-tag {
+            color: var(--accent-cyan);
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>XR6 Labs</h1>
-            <div class="subtitle">Core Architecture & Systems R&D</div>
-        </header>
+<div class="container">
+    <header>
+        <div class="logo">XR6 LABS</div>
+        <div class="subtitle">Core Architecture & Systems R&D</div>
+    </header>
 
-        <p class="bio">
-            Specializing in post-quantum local encryption frameworks, secure data integrity verification, 
-            and device performance loop optimizations. Engineering specialized SDK integration layers 
-            and decentralized infrastructure modules.
-        </p>
-
-        <h2 class="section-title">Active Repositories</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>js-sdk-XR6</h3>
-                <p>TypeScript development kit optimizing transaction mapping logic, encryption wrappers, and network system operations.</p>
-            </div>
-            <div class="card">
-                <h3>cryptography</h3>
-                <p>Python-based implementations focusing on secure local encryption modules and robust data-handling fail-safes.</p>
-            </div>
-            <div class="card">
-                <h3>merkleetree-verify</h3>
-                <p>High-precision data verification tooling structured to audit backend record logs and maintain system consensus integrity.</p>
-            </div>
+    <div class="section">
+        <div class="section-title">Manifest & Blueprint</div>
+        <div class="bio-box">
+            Systems Architect sandbox specializing in Web3 infrastructure and low-level device optimization. Focused on post-quantum local encryption frameworks, secure data integrity verification, and secure transaction execution. Locked under the <span class="protocol-tag">XR6 Labs Protocol</span>.
         </div>
-
-        <footer>
-            <p>Inquiries: <a href="mailto:xr6.corengineeringlab@gmail.com">xr6.corengineeringlab@gmail.com</a></p>
-            <p>Explore source code on <a href="https://github.com/XR6matt" target="_blank">GitHub</a></p>
-        </footer>
     </div>
+
+    <div class="section">
+        <div class="section-title">Active Repositories</div>
+        <div class="repo-list">
+            
+            <div class="repo-card">
+                <div class="repo-header">
+                    <a href="https://github.com/XR6Matt/js-sdk-xr6" class="repo-name" target="_blank">js-sdk-xr6</a>
+                    <span class="repo-tag">TypeScript</span>
+                </div>
+                <div class="repo-desc">Core JavaScript/TypeScript SDK wrapper optimized for high-performance TON blockchain modular integrations.</div>
+            </div>
+
+            <div class="repo-card">
+                <div class="repo-header">
+                    <a href="https://github.com/XR6Matt/omniston-sdk" class="repo-name" target="_blank">omniston-sdk</a>
+                    <span class="repo-tag">TypeScript</span>
+                </div>
+                <div class="repo-desc">Monorepo pipeline with advanced SDK implementations for the STON.fi Omniston routing protocol ecosystem.</div>
+            </div>
+
+            <div class="repo-card">
+                <div class="repo-header">
+                    <a href="https://github.com/XR6Matt/cryptography" class="repo-name" target="_blank">cryptography</a>
+                    <span class="repo-tag">Python</span>
+                </div>
+                <div class="repo-desc">Localized cryptographic scripts executing memory-isolated defense logic and defensive data verification loops.</div>
+            </div>
+
+            <div class="repo-card">
+                <div class="repo-header">
+                    <a href="https://github.com/XR6Matt/merkleetree-verify" class="repo-name" target="_blank">merkleetree-verify</a>
+                    <span class="repo-tag">JavaScript</span>
+                </div>
+                <div class="repo-desc">Cryptographic proof pipeline for real-time validation of distributed transactional state structures.</div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div>System Connection: <span style="color: var(--text-main);">xr6.corengineeringlab@gmail.com</span></div>
+        <div style="margin-top: 4px;">&copy; 2026 XR6 Labs. Signed & Locked under Cryptoseal Deed.</div>
+    </footer>
+</div>
 
 </body>
 </html>
