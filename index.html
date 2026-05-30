@@ -10,10 +10,12 @@
             --panel-bg: #10141b;
             --accent-blue: #007acc;
             --accent-cyan: #00e5ff;
+            --accent-orange: #ff9100; /* XR6 Labs Trademark Orange */
             --text-main: #e2e8f0;
             --text-muted: #64748b;
             --border-color: #1e293b;
             --glow-color: rgba(0, 229, 255, 0.15);
+            --trademark-glow: rgba(255, 145, 0, 0.25);
         }
 
         * {
@@ -34,14 +36,28 @@
             min-height: 100vh;
         }
 
+        /* Container updated with the Pulsing Orange Trademark Border */
         .container {
             width: 100%;
             max-width: 600px;
             background: var(--panel-bg);
-            border: 1px solid var(--border-color);
+            border: 2px solid var(--accent-orange);
             border-radius: 12px;
             padding: 24px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 15px var(--glow-color);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+            animation: orangePulse 4s infinite alternate;
+        }
+
+        /* Neon Orange Pulse Animation mimicking AI Studio Shell */
+        @keyframes orangePulse {
+            0% {
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 10px rgba(255, 145, 0, 0.2);
+                border-color: rgba(255, 145, 0, 0.7);
+            }
+            100% {
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 22px var(--trademark-glow);
+                border-color: var(--accent-orange);
+            }
         }
 
         header {
@@ -158,8 +174,9 @@
         }
 
         .protocol-tag {
-            color: var(--accent-cyan);
+            color: var(--accent-orange);
             font-weight: bold;
+            text-shadow: 0 0 5px rgba(255, 145, 0, 0.3);
         }
     </style>
 </head>
