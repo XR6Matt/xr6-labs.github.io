@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+title: "XR6-Labs Research Website"
+message: "If you use this portal for research, please cite it as follows."
+type: software
+authors:
+  - family-names: "Zulkifli"
+    given-names: "Dr Mohd Rahmat Nasyaa Bin"
+    affiliation: "XR6-Labs"
+repository-code: "https://github.com/XR6Matt/xr6-labs.github.io"
+url: "https://xr6matt.github.io"
+abstract: "Professional research portal for disseminating research outputs and scholarly contributions in extended reality (XR) and related technologies."
+keywords:
+  - "extended reality"
+  - "research portal"
+  - "computer science"
+  - "distributed systems"
+  - "cryptography"
+license: "CC-BY-4.0 AND Apache-2.0"
+version: 1.0.0
+date-released: 2026-10-03
+references:
+  - type: article
+    authors:
+      - family-names: "Zulkifli"
+        given-names: "Dr Mohd Rahmat Nasyaa Bin"
+    title: "Cross-Platform Eco-Compute: An Abstracted Hardware and Software Optimization Framework for Computers and Mobile Devices"
+    publisher: "Cambridge Open Engage"
+    year: 2026
+    doi: "10.33774/coe-2026-qbtzc"
+    notes: "Preprint - not peer-reviewed"
+  - type: article
+    authors:
+      - family-names: "Zulkifli"
+        given-names: "Dr Mohd Rahmat Nasyaa Bin"
+    title: "An Architecture for Cryptographic Node Verification and Low-Latency Data Integrity Auditing in Distributed AI Pipelines"
+    publisher: "Cambridge Open Engage"
+    year: 2026
+    doi: "10.33774/coe-2026-x650j"
+    notes: "Preprint - not peer-reviewed"
+  - type: article
+    authors:
+      - family-names: "Zulkifli"
+        given-names: "Dr Mohd Rahmat Nasyaa Bin"
+    title: "Unified Cryptographic Proof-of-Execution and Eco-Compute Optimization for Decentralized Autonomous AI Infrastructure"
+    publisher: "Cambridge Open Engage"
+    year: 2026
+    doi: "10.33774/coe-2026-87n20"
+    notes: "Preprint - not peer-reviewed"
