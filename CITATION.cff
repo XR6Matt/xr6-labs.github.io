@@ -1,11 +1,11 @@
 cff-version: 1.2.0
-title: "XR6-Labs Research Website"
+title: "XR6 Labs HQ - Research & Engineering Portal"
 message: "If you use this portal for research, please cite it as follows."
 type: software
 authors:
   - family-names: "Zulkifli"
     given-names: "Dr Mohd Rahmat Nasyaa Bin"
-    affiliation: "XR6-Labs"
+    affiliation: "XR6 Labs HQ - Research & Engineering"
 repository-code: "https://github.com/XR6Matt/xr6-labs.github.io"
 url: "https://xr6matt.github.io"
 abstract: "Professional research portal for disseminating research outputs and scholarly contributions in extended reality (XR) and related technologies."
@@ -16,7 +16,7 @@ keywords:
   - "distributed systems"
   - "cryptography"
 license: "CC-BY-4.0 AND Apache-2.0"
-version: 1.0.0
+version: 1.0.1
 date-released: 2026-10-03
 references:
   - type: article
